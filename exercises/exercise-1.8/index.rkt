@@ -1,4 +1,4 @@
-#!/user/local/racket/bin/racket
+#!/usr/local/racket/bin/racket
 #lang racket
 
 (define (abs x)
