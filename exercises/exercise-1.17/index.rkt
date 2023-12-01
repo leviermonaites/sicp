@@ -10,7 +10,7 @@
 )
 
 (define (multiply-iter a n i)
-    (cond
+  (cond
     ((= n 0) 0)
     ((= n 1) (+ a i))
     ((even? n) (multiply-iter (double a) (halve n) i))
