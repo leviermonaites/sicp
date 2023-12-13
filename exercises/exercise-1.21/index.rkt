@@ -17,4 +17,6 @@
   )
 )
 
-(define (smallest-divisor n) (find-divisor n 2))
+(define (smallest-divisor n) 
+  (time (find-divisor n 2))
+)

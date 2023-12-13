@@ -1,8 +1,6 @@
 #!/usr/local/racket/bin/racket
 #lang racket
 
-(define (runtime) (current-milliseconds))
-
 (define (square a)
   (* a a)
 )
@@ -40,23 +38,23 @@
 )
 
 (define (prime? n)
-  (fast-prime? n 100000)
+  (fast-prime? n 10)
 )
 
 (define (timed-prime-test n)
   (newline)
   (display n)
-  (time (start-prime-test n))
+  (start-prime-test n (* (current-inexact-milliseconds) 1000000))
 )
 
-(define (start-prime-test n)
+(define (start-prime-test n start-time)
   (if (prime? n)
-    (display " *** ")
+    (report-prime n (- (* (current-inexact-milliseconds) 1000000) start-time))
     (display "")
   )
 )
 
-(define (report-prime elapsed-time)
+(define (report-prime n elapsed-time)
   (display " *** ")
   (display elapsed-time)
 )
@@ -74,4 +72,4 @@
   )
 )
 
-(search-for-primes 1000000 1000000000)
+(search-for-primes 1000000000 1000000100)
